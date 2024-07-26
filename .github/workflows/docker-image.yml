@@ -4,8 +4,8 @@ on:
     push:
         branches: [ "main" ]
 env:
-    IMAGE_NAME: tm-front
-    IMAGE_TAG: dev
+    IMAGE_NAME: cicd_test
+    IMAGE_TAG: latest
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,7 +26,9 @@ jobs:
       - name: Run Linters
         run: |
           cd src
-          pylint .\*
+          pylint calculator.py
+          pylint main.py
+          pylint testcalculator.py
       - name: Test App
         run: python TestCalculator.py
       - name: Run App
