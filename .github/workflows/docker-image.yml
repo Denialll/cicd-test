@@ -30,7 +30,7 @@ jobs:
           pylint main.py
           pylint testcalculator.py
       - name: Test App
-        run: python python .\src\testcalculator.py
+        run: python .\src\testcalculator.py
       - name: Run App
         run: python .\src\main.py
 #      - name: Build and push the image
