@@ -1,5 +1,5 @@
 FROM python:3
 
-ADD Calculator.py .
+ADD . .
 
-CMD [ "python", "./Calculator.py" ]
+CMD [ "python", "./main.py" ]
