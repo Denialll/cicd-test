@@ -30,9 +30,9 @@ jobs:
           pylint main.py
           pylint testcalculator.py
       - name: Test App
-        run: python .\src\testcalculator.py
+        run: python ./src/testcalculator.py
       - name: Run App
-        run: python .\src\main.py
+        run: python ./src/main.py
 #      - name: Build and push the image
 #        run: |
 #         docker login --username deniel369 --password ${{ secrets.FEDAG_TOKEN }} ghcr.io
