@@ -2,9 +2,9 @@ from calculator import Calculator
 
 
 def main():
-    calculator = Calculator.Calculator()
+    calculator = Calculator()
 
-    number = calculator.add(5, 12)
+    number = calculator.add(5, 15)
     print(number)
 
 

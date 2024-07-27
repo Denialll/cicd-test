@@ -2,4 +2,4 @@ FROM python:3
 
 ADD . .
 
-CMD [ "python", "./main.py" ]
+CMD [ "python", "./src/main.py" ]
