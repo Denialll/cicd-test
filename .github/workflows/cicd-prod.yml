@@ -46,20 +46,12 @@ jobs:
         run: |
             docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
             docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-            
-        
-
-#      - name: Build and push the image
-#        run: |
-#         docker login --username deniel369 --password ${{ secrets.FEDAG_TOKEN }} ghcr.io
-#          docker build . --tag ghcr.io/fedagcom/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-#          docker push ghcr.io/fedagcom/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-#      - name: executing remote ssh commands using password
-#        uses: appleboy/ssh-action@v1.0.3
-#        with:
-#          host: ${{ secrets.SSH_HOST }}
-#          username: ${{ secrets.SSH_USER }}
-#          password: ${{ secrets.SSH_PASSWORD }}
-#          port: ${{ secrets.SSH_PORT }}
-#          script: |
-#            ${{ secrets.SSH_COMMAND }}
+      - name: Deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            ${{ secrets.SSH_COMMAND }}
