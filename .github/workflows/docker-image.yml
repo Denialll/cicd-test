@@ -5,7 +5,7 @@ on:
         branches: [ "main" ]
 env:
     IMAGE_NAME: cicd_test
-    IMAGE_TAG: latest
+    IMAGE_TAG: latestt
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,11 +33,15 @@ jobs:
             pylint calculator.py
             pylint main.py
             pylint testcalculator.py
-      - name: Build and push the image on DockerHub
-        run: |
-            docker login --username deniel369 --password ${{ secrets.DOCKER_PASSWORD }}
-            docker build . --tag deniel369/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-            docker push deniel369/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build docker image
+        run: docker build . --tag ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+      - name: Push the image on DockerHub            
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 #      - name: Build and push the image
 #        run: |
 #         docker login --username deniel369 --password ${{ secrets.FEDAG_TOKEN }} ghcr.io
