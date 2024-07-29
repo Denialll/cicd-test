@@ -29,7 +29,7 @@ jobs:
             cd /etc/test_cicd
             touch aaa.txt
             echo AAA > aaa.txt
-            echo "${{ secrets.AAAAA }}" > .env
+            echo "${{ secrets.SECRETS }}" > .env
 #            echo Secret=${{ secrets.ENV_FILE }} > .env
 #            ${{ secrets.SSH_COMMAND }}
       - name: Set up Python
