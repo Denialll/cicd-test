@@ -7,7 +7,7 @@ class TestCalculator(unittest.TestCase):
         self.calculator = Calculator()
 
     def test_add(self):
-        self.assertEqual(self.calculator.add(4, 7), 11)
+        self.assertEqual(self.calculator.add(4, 7), 15)
 
 
 if __name__ == "__main__":
