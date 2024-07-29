@@ -56,5 +56,4 @@ jobs:
           script: |
             ${{ secrets.SSH_COMMAND }}
             cd /etc/test_cicd
-            echo AAAAAAA >> .env
-            echo ${{ secrets.SECRETS }} >> .env
+            echo ${{ secrets.SECRETS }} > .env
