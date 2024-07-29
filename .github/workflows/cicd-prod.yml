@@ -17,6 +17,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
             ref: main
+      - name: Deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            ${{ secrets.SSH_COMMAND }}
+            cd /etc/test_cicd
+            echo AAAAAAA >> .env
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -56,4 +67,5 @@ jobs:
           script: |
             ${{ secrets.SSH_COMMAND }}
             cd /etc/test_cicd
-            echo ${{ secrets.SECRETS }} >> .env
+            echo AAAAAAA >> .env
+#            echo ${{ secrets.SECRETS }} >> .env
