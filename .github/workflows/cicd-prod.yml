@@ -46,10 +46,6 @@ jobs:
         run: |
             docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
             docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-      - name: Change env
-        run: |
-            cd /etc/test_cicd
-            echo ${{ secrets.SECRETS }} >> .env
       - name: Deploy
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -59,3 +55,5 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             ${{ secrets.SSH_COMMAND }}
+            cd /etc/test_cicd
+            echo ${{ secrets.SECRETS }} >> .env
