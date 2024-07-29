@@ -23,9 +23,11 @@ jobs:
         with:
             python-version: '3.11.7'
       - name: Installing dependencies
-        run: pip install pylint
-      - name: Run App
-        run: python ./src/main.py
+        run: | 
+            pip install pylint
+            pip install pyinstaller
+      - name: Build App
+        run: pyinstaller --onefile ./src/main.py
       - name: Test App
         run: python ./src/testcalculator.py
       - name: Run Linters
