@@ -27,7 +27,7 @@ jobs:
           script: |
             ${{ secrets.SSH_COMMAND }}
             cd /etc/test_cicd
-            echo AAAAAAA >> .env
+            echo AAAAAAA > .env
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
