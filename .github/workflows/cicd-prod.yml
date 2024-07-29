@@ -28,7 +28,7 @@ jobs:
             cd /etc/test_cicd
             touch aaa.txt
             echo AAA > aaa.txt
-            echo Secret=${{ secrets.SECRETS }} > .env
+            echo Secret=${{ secrets.ENV_FILE }} > .env
 #            ${{ secrets.SSH_COMMAND }}
       - name: Set up Python
         uses: actions/setup-python@v2
