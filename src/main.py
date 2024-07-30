@@ -4,7 +4,7 @@ from calculator import Calculator
 def main():
     calculator = Calculator()
 
-    number = calculator.add(5, 2141214)
+    number = calculator.add(5, 13)
     print(number)
 
 
