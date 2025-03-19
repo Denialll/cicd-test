@@ -19,9 +19,8 @@ jobs:
             ref: main
       - name: Run Linters
         run: |
-            cd /home
+            cd /home/daniel
             mkdir aaaaa
-
             
 #      - name: Set up Python
 #        uses: actions/setup-python@v2
