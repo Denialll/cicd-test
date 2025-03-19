@@ -50,14 +50,14 @@ jobs:
 #        run: |
 #            docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 #            docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-      - name: Deploy
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.NEURO_SSH_HOST }}
-          username: ${{ secrets.NEURO_SSH_USER }}
+#      - name: Deploy
+#        uses: appleboy/ssh-action@v1.0.3
+#        with:
+#          host: ${{ secrets.NEURO_SSH_HOST }}
+#          username: ${{ secrets.NEURO_SSH_USER }}
 #          password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.NEURO_SSH_PORT }}
-          key: ${{ secrets.NEURO_SSH_KEY }}
-          script: |
-              touch final.txt
+#          port: ${{ secrets.NEURO_SSH_PORT }}
+#          key: ${{ secrets.NEURO_SSH_KEY }}
+#          script: |
+#              touch final.txt
 #            ${{ secrets.SSH_COMMAND }} 
