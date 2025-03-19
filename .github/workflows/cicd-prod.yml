@@ -8,7 +8,7 @@ env:
     IMAGE_TAG: latest
 jobs:
   CI_CD:
-    runs-on: ubuntu-latest
+    runs-on: fedag6
     permissions:
         contents: read
         packages: write
@@ -17,6 +17,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
             ref: main
+      - name: Run Linters
+        run: |
+            cd /home
+            mkdir aaaaa
 #      - name: Set up Python
 #        uses: actions/setup-python@v2
 #        with:
