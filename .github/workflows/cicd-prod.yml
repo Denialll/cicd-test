@@ -8,7 +8,7 @@ env:
     IMAGE_TAG: latest
 jobs:
   CI_CD:
-    runs-on: self-hosted
+    runs-on: fedag6
     permissions:
         contents: read
         packages: write
